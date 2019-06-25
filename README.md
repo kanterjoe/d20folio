@@ -5,10 +5,9 @@ D&amp;D character folio web app created as a two day project to teach U of MN Tr
 
 Boilerplate was started with `19-react/07-Ins_MERN`
 
-
 ***
 
-###Technologies used:
+### Technologies used:
 	* React.JS
 	* Nodemon
 	* if-env
@@ -22,7 +21,7 @@ Boilerplate was started with `19-react/07-Ins_MERN`
 	
 ***
 
-###Initializing
+### Initializing
 
 Clone the repo into your folder of choice. Once the files have been compiled, please:
 > 	npm install
@@ -34,17 +33,19 @@ Or
 ***
 
 
-###Table Data
+### Table Data
 <img src="client/src/tables-for-d20folio.png" alt="image of table data on white board" style="width: 500px;">
 	*If unable to see image, refer to data tables below*
 
-####User Data Table
+#### User Data Table
+
 	_id: *,
 	username: string,
 	password: string,
 	characters: array (references _id -> Character)
 	
-####Character Data Table
+#### Character Data Table
+
 	_id: *,
 	name: string,
 	imageUrl: string,
@@ -59,7 +60,8 @@ Or
 	charisma: int, 
 	equipment: [array] (references _id -> Equipment)
 	
-####Equipment Data Table
+#### Equipment Data Table
+
 	_id: *,
 	name: string,
 	strength: int,
