@@ -49,7 +49,7 @@ export default class NavigationBar extends React.Component {
                 </NavItem>
                 <NavItem>
                     <NavLink>
-                        <Link to='/add'> Add New Character </Link>
+                        <Link to='/new'> Add New Character </Link>
                     </NavLink>
                 </NavItem>
             </Nav>
