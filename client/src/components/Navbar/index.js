@@ -32,7 +32,7 @@ export default class NavigationBar extends React.Component {
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">
-              {/* <img className="img-fluid" src="/images/d20-folio-logo-1.png" /> */}
+              <img className="img-fluid" src="/images/d20-folio-logo-1.png" />
               D20Folio</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
