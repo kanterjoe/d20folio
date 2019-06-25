@@ -3,13 +3,11 @@ const path      = require("path");
 const PORT      = process.env.PORT || 3001;
 const app       = express();
 const mongoose  = require("mongoose"); //brings in mongoose
-const db        = require('./models'); //brings in our models
+
 mongoose.connect("mongodb://localhost/D20Folio", { useNewUrlParser: true });
-mongoose.set('useCreateIndex', true);
+mongoose.set('useCreateIndex', true); //fixes below error: 
+/*DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.*/
 
-const seeds     = require('./charSeeds.json');
-
-seeds.map(character => db.Character.create(character));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +18,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(require('./routes'));
 
 // Send every other request to the React app
 // Define any API routes before this runs
