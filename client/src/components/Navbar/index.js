@@ -1,5 +1,4 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
 import {
   Collapse,
   Navbar,
@@ -7,13 +6,14 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavLink
+} from "reactstrap";
 
-export default class NavigationBar extends React.Component {
+import "./style.css";
+
+const logo = require("../../d20-folio-logo-1.png");
+
+export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
@@ -30,22 +30,34 @@ export default class NavigationBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar className="navbar" light expand="md">
           <NavbarBrand href="/">
-              <img className="img-fluid" src="/images/d20-folio-logo-1.png" />
-              D20Folio</NavbarBrand>
+            <img
+              src={logo}
+              alt="d20folio"
+              style={{ width: 50, margin: 5, padding: 2 }}
+            />
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <Link to='/'> Home </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to='/mychars'> My Characters </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to='/new'> Add New Character </Link>
-                </NavItem>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/mychars">My Characters</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/new">Add Character</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  target="_blank"
+                  href="https://github.com/kanterjoe/d20folio"
+                >
+                  GitHub
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
