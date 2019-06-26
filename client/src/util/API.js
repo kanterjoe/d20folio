@@ -13,8 +13,3 @@ export default {
     getMyCharacters: () => axios.get('/api/characters/mine')
             .then(response => response.data),
 }
-
-
-// for example: 
-
-//API.getAllCharacters().then(characters => /*somethign*/)
