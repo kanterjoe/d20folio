@@ -27,16 +27,25 @@ router.route('/character')
 router.route('/character/:id')
     .get( (req,res,err) => {
         //get a single character
-        res.json(seeds[0]);
-
+        db.Character.findOne({id: req.params._id})
+        .then(character => {console.log("Got Character: ", character); return character;})
+        .then(character => res.json(character))
+        .catch(error => res.json(500, error))
     })
     .put( (req,res,err) => {
         //update a character here
-        res.json("");
+        const newChar = req.body;
+        const id = newChar._id;
+
+        db.Character.put(id, newChar)
+            .then( () => res.json(""))
+            .catch(error => res.json(500, error))
     })
     .delete( (req,res,err) => {
         //delete a character here
-        res.json("");
+        db.Character.deleteOne(req.params.id)
+            .then( () => res.json(""))
+            .catch(error => res.json(500, error))
     })
 
 router.route('/characters/mine')
