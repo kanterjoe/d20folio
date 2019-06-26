@@ -27,3 +27,10 @@
   height: 35px;
   margin: 5px;
 }
+
+.img-profile {
+  height: 400px;
+  float: left;
+  padding: 20px;
+  margin: 0 auto;
+}

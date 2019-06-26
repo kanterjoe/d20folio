@@ -26,7 +26,7 @@ export default class ViewAllCharacters extends React.Component {
                         this.state.characters.map( (character, id) => (
                             <div>
                                 {character.name}
-                                <img src={character.imageUrl} alt=""/>
+                                <img className="img-profile" src={character.imageUrl} alt=""/>
                             </div>
                         ))
                     }
