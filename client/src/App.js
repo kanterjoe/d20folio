@@ -4,6 +4,7 @@ import {Jumbotron} from 'reactstrap';
 import {BrowserRouter, Route} from 'react-router-dom'
 import NavigationBar from './components/Navbar';
 import ViewAllCharacters from './pages/ViewAllCharacters';
+import EditCharacter from './pages/EditCharacter';
 import "./App.css";
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
           <NavigationBar />
           <Route exact path="/" component={() => <ViewAllCharacters />} />
           <Route exact path="/mychars" component={() => <div>myChars</div>} />
-          <Route exact path="/new" component={() => <div>New</div>} />
+          <Route exact path="/new" component={() => <EditCharacter new={true}/>} />
           <Route exact path="/edit/:id" component={({match}) => <div>Editing {match.params.id}</div>} />
         </BrowserRouter>
       </div>
