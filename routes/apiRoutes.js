@@ -27,7 +27,7 @@ router.route('/character')
 router.route('/character/:id')
     .get( (req,res,err) => {
         //get a single character
-        db.Character.findOne({id: req.params._id})
+        db.Character.findOne({id: req.params.id})
         .then(character => {console.log("Got Character: ", character); return character;})
         .then(character => res.json(character))
         .catch(error => res.json(500, error))
