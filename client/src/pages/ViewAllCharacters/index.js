@@ -1,13 +1,19 @@
 import React from 'react';
 import {Col, Row, Container, Jumbotron} from 'reactstrap'
-import seeds from './charSeeds.json';
+// import seeds from './charSeeds.json';
+import CharacterCard from '../../components/CharacterCard/';
+import API from '../../util/API';
 
 export default class ViewAllCharacters extends React.Component {
     state = {
-        characters: seeds
+        characters: []
     }
+    fetchCharacters = () => (
+        API.getAllCharacters()
+            .then( characters => this.setState({characters: characters}))
+    )
     componentDidMount () {
-
+        this.fetchCharacters();
     }
     render () {
         return (
@@ -24,10 +30,7 @@ export default class ViewAllCharacters extends React.Component {
                 <Col md={12}>
                     {
                         this.state.characters.map( (character, id) => (
-                            <div>
-                                {character.name}
-                                <img src={character.imageUrl} alt=""/>
-                            </div>
+                            <CharacterCard character={character} key={id}/>
                         ))
                     }
                 </Col>
