@@ -5,20 +5,6 @@ D&amp;D character folio web app created as a two day project to teach U of MN Tr
 
 Boilerplate was started with `19-react/07-Ins_MERN`
 
-***
-
-### Technologies used:
-	* React.JS
-	* Nodemon
-	* if-env
-	* ExpressJS
-	* Mongoose
-	* NodeJS
-	* NoSQL (MongoDB)
-	* Reactstrap
-	* React-router-dom
-	* 
-
 	
 ***
 
@@ -72,4 +58,21 @@ Or
 	wisdom: int,
 	charisma: int,
 	dieSize: int [between 4-12 sided die]
+	
+***
+
+### Technologies used:
+	* React.JS
+	* Nodemon
+	* if-env
+	* ExpressJS
+	* Mongoose
+	* NodeJS
+	* NoSQL (MongoDB)
+	* Reactstrap
+	* React-router-dom
+	* Axios
+	* Bootstrap
+	* React-dom
+	* React-Scripts
 	

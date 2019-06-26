@@ -20,6 +20,24 @@ export default class EditCharacter extends React.Component {
             [field] : value
         })
     }
+    clearForm = () => {
+        
+    }
+    submitCharacterCreation = () => {
+        const newChar = {
+            name: this.state.name,
+            imageUrl: this.state.imageUrl,
+            //Stats:
+            STR: this.state.STR,
+            DEX: this.state.DEX,
+            CON: this.state.CON,
+            INT: this.state.INT,
+            WIS: this.state.WIS,
+            CHA: this.state.CHA,
+        }
+        API.createCharacter(newChar)
+            .then(() => this.clearForm())
+    }
     render() {
         return (
             this.props.new? 
@@ -43,7 +61,7 @@ export default class EditCharacter extends React.Component {
                                 onChange={this.handleInput("imageUrl")}
                             />
                         </FormGroup>
-                        <img alt="" src={this.state.imageUrl}/>
+                        <img alt="" src={this.state.imageUrl} className="img-thumbnail rounded"/>
                     </Col>
                     <Col md={6}>
                         <FormGroup>

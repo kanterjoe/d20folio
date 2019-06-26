@@ -27,7 +27,7 @@ export default class ViewAllCharacters extends React.Component {
                 </Col>
             </Row>
             <Row>
-                <Col md={12} className='img-profile'>
+                <Col md={12}>
                     {
                         this.state.characters.map( (character, id) => (
                             <CharacterCard character={character} key={id}/>
