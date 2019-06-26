@@ -1,6 +1,7 @@
 import React from 'react';
 import API from '../../util/API';
-import {Input, Button, Form, FormGroup, Label, Col, Row, Container, Jumbotron} from 'reactstrap'
+import {Input, Button, FormGroup, Label, Col, Row, Container, Jumbotron} from 'reactstrap'
+import StatCard from "../../components/StatCard";
 export default class EditCharacter extends React.Component {
     state = {
         name: "SpongeBob the Wise",
@@ -13,6 +14,9 @@ export default class EditCharacter extends React.Component {
         INT: "10",
         WIS: "10",
         CHA: "10",
+
+        //Array of Stat Names:
+        statArray: ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
     }
     handleInput = field => event => {
         const {value} = event.target;
@@ -21,7 +25,9 @@ export default class EditCharacter extends React.Component {
         })
     }
     clearForm = () => {
-        
+        this.setState({Name: "", imageUrl: "",
+        STR: "10", DEX: "10", CON: "10",
+        INT: "10", WIS: "10", CHA: "10"});
     }
     submitCharacterCreation = () => {
         const newChar = {
@@ -37,6 +43,21 @@ export default class EditCharacter extends React.Component {
         }
         API.createCharacter(newChar)
             .then(() => this.clearForm())
+    }
+    lowerStat = field => {
+        if(this.state[field] > 3){
+            let value = parseInt(this.state[field])-1
+            this.setState({[field]: value.toString()})
+        }
+        console.log(this.state[field]);
+    }
+
+    increaseStat = field => {
+        if(this.state[field] < 18){
+            let value = parseInt(this.state[field])+1
+            this.setState({[field]: value.toString()})
+        }
+        console.log(this.state[field]);
     }
     render() {
         return (
@@ -61,71 +82,15 @@ export default class EditCharacter extends React.Component {
                                 onChange={this.handleInput("imageUrl")}
                             />
                         </FormGroup>
-                        <img alt="" src={this.state.imageUrl} className="img-thumbnail rounded"/>
+                        <img alt="" src={this.state.imageUrl} width="500px" className="img-thumbnail rounded"/>
                     </Col>
                     <Col md={6}>
-                        <FormGroup>
-                            <Label>Strength</Label>
-                            <Input 
-                                name="Str"
-                                value={this.state.STR}
-                                onChange={this.handleInput("STR")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Dexterity</Label>
-                            <Input 
-                                name="Dex"
-                                value={this.state.DEX}
-                                onChange={this.handleInput("DEX")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Constitution</Label>
-                            <Input 
-                                name="Con"
-                                value={this.state.CON}
-                                onChange={this.handleInput("CON")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Intelligence</Label>
-                            <Input 
-                                name="Int"
-                                value={this.state.INT}
-                                onChange={this.handleInput("INT")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Wisdom</Label>
-                            <Input 
-                                name="Wis"
-                                value={this.state.WIS}
-                                onChange={this.handleInput("WIS")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Charisma</Label>
-                            <Input 
-                                name="Cha"
-                                value={this.state.CHA}
-                                onChange={this.handleInput("CHA")}
-                                type="number"
-                                min="3" max="18"
-                            />
-                        </FormGroup>
+                    {this.state.statArray.map(stat => (
+                            <StatCard name={stat} state={this.state[stat]}
+                            decFunction={() => this.lowerStat(stat)}
+                            incFunction={() => this.increaseStat(stat)}/>
+                        ))}
                     </Col>
-                    
                 </Row>
                 <Row>
                     <Col md={12}>

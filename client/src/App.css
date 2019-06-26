@@ -18,19 +18,20 @@
   font-size: large;
 }
 
+.main {
+  margin-top: 14vh;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .img-fluid {
   height: 35px;
   margin: 5px;
-}
-
-.img-profile {
-  height: 400px;
-  float: left;
-  padding: 20px;
-  margin: 0 auto;
 }
