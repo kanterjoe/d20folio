@@ -23,3 +23,7 @@
   to { transform: rotate(360deg); }
 }
 
+.img-fluid {
+  height: 35px;
+  margin: 5px;
+}
