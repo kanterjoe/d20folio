@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import NavigationBar from "./components/Navbar";
 import ViewAllCharacters from "./pages/ViewAllCharacters";
 import EditCharacter from "./pages/EditCharacter";
+import ViewMyCharacters from "./pages/ViewMyCharacters";
 import "./App.css";
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
           <NavigationBar />
           <div className="main">
             <Route exact path="/" component={() => <ViewAllCharacters />} />
-            <Route exact path="/mychars" component={() => <div>myChars</div>} />
+            <Route exact path="/mychars" component={ViewMyCharacters} />
             <Route
               exact
               path="/new"
