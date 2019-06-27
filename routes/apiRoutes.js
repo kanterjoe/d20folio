@@ -43,7 +43,7 @@ router.route('/character/:id')
     })
     .delete( (req,res,err) => {
         //delete a character here
-        db.Character.deleteOne(req.params.id)
+        db.Character.deleteOne({_id: req.params.id})
             .then( () => res.json(""))
             .catch(error => res.json(500, error))
     })

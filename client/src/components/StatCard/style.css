@@ -1,0 +1,13 @@
+.stat-display {
+    max-width: 45px;
+}
+.stat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.character-creator{
+    border: 1px solid black;
+    padding: 2px 0;
+    margin-bottom: 15px;
+}

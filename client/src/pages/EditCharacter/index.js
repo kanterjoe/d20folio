@@ -64,41 +64,47 @@ export default class EditCharacter extends React.Component {
             this.props.new? 
             <Container>
                 <Jumbotron><h1>Create a new Character</h1></Jumbotron>
-                <Row>
-                    <Col md={6}>
-                        <FormGroup>
-                            <Label>Character Name</Label>
-                            <Input 
-                                name="name"
-                                value={this.state.name}
-                                onChange={this.handleInput("name")}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Image Url</Label>
-                            <Input 
-                                name="Image"
-                                value={this.state.imageUrl}
-                                onChange={this.handleInput("imageUrl")}
-                            />
-                        </FormGroup>
+                <div className="character-creator">
+                    <Row>
+                        <Col md={{size:8, offset:2}}>
+                            <FormGroup>
+                                <Label>Character Name</Label>
+                                <Input 
+                                    name="name"
+                                    value={this.state.name}
+                                    onChange={this.handleInput("name")}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Image Url</Label>
+                                <Input 
+                                    name="Image"
+                                    value={this.state.imageUrl}
+                                    onChange={this.handleInput("imageUrl")}
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={{size:6, offset:2}}>
                         <img alt="" src={this.state.imageUrl} width="500px" className="img-thumbnail rounded"/>
-                    </Col>
-                    <Col md={6}>
-                    {this.state.statArray.map(stat => (
-                            <StatCard name={stat} state={this.state[stat]}
-                            decFunction={() => this.lowerStat(stat)}
-                            incFunction={() => this.increaseStat(stat)}/>
-                        ))}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={12}>
-                        <Button onClick={this.submitCharacterCreation}>
-                            Create Character
-                        </Button>
-                    </Col>
-                </Row>
+                        </Col>
+                        <Col md={2}>
+                        {this.state.statArray.map(stat => (
+                                <StatCard name={stat} state={this.state[stat]}
+                                decFunction={() => this.lowerStat(stat)}
+                                incFunction={() => this.increaseStat(stat)}/>
+                            ))}
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={12}>
+                            <Button onClick={this.submitCharacterCreation}>
+                                Create Character
+                            </Button>
+                        </Col>
+                    </Row>
+                </div>
             </Container>
             : null
         )

@@ -3,8 +3,8 @@ const path      = require("path");
 const PORT      = process.env.PORT || 3001;
 const app       = express();
 const mongoose  = require("mongoose"); //brings in mongoose
-
-mongoose.connect("mongodb://localhost/D20Folio", { useNewUrlParser: true });
+const DB_URI    = process.env.MONGODB_URI || "mongodb://localhost/D20Folio";
+mongoose.connect(DB_URI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true); //fixes below error: 
 /*DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.*/
 
