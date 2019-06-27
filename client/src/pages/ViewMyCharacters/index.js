@@ -3,7 +3,7 @@ import { Col, Row, Container, Jumbotron } from 'reactstrap'
 import CharacterCard from '../../components/CharacterCard';
 import API from '../../util/API';
 
-export default class MyCharacters extends Component {
+export default class ViewMyCharacters extends Component {
   constructor(props) {
     super(props)
 
