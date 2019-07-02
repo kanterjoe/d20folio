@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const db = require('../models'); //brings in our models
-const SECRET_KEY = '7zAXlb78vKSm6JSUVKHW3rvoHGjEAQ3N';
+const SECRET_KEY = '7zAXlb78vKSm6JSUVKHW3rvoHGjEAQ3N'; //don't forget to hide this
 
 // const expressJwt = require('express-jwt');
 // const jwtConfig = expressJwt({secret: 'aldsfjaklsdfjaskldfjklasdfjklsadjfklsdaf'})
