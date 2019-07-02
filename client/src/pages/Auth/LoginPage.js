@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Col, Row, Input, Form, Button, Jumbotron} from 'reactstrap';
-
-class SignupPage extends React.Component {
+import axios from 'axios';
+class LoginPage extends React.Component {
     state = {
         username: "",
         password: "",
@@ -22,8 +22,11 @@ class SignupPage extends React.Component {
         this.setState({[field]: event.target.value})
     }
     handleSubmit = () => {
-        //Need to fill this out
-        console.log("Valid input:", this.validateFormInfo(), " state: ", this.state)
+
+        axios.post('/auth/login', this.state) 
+            //.then(result => console.log("Result: ", result));
+            .then( result => localStorage.setItem("token", result.data.token))
+            
     }
 
     render () {
@@ -58,3 +61,4 @@ class SignupPage extends React.Component {
         )
     }
 }
+export default LoginPage;

@@ -6,6 +6,7 @@ import NavigationBar from "./components/Navbar";
 import ViewAllCharacters from "./pages/ViewAllCharacters";
 import EditCharacter from "./pages/EditCharacter";
 import ViewMyCharacters from "./pages/ViewMyCharacters";
+import {SignupPage, LoginPage} from './pages/Auth'
 import "./App.css";
 
 class App extends Component {
@@ -16,6 +17,8 @@ class App extends Component {
           <NavigationBar />
           <div className="main">
             <Route exact path="/" component={() => <ViewAllCharacters />} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/mychars" component={ViewMyCharacters} />
             <Route
               exact
