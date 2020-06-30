@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.6.1"
